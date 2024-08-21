@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://diq4af41qpdbf"]
+
+[ext_resource type="Script" path="res://lessons/item.gd" id="1_38dhh"]
+[ext_resource type="Texture2D" uid="uid://bp8neshawfvtq" path="res://assets/platformPack_tile024.png" id="2_sgpa8"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7fpxc"]
+blend_mode = 2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fj068"]
+radius = 25.318
+
+[node name="BlackHole" type="Area2D" groups=["black_hole"]]
+script = ExtResource("1_38dhh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_7fpxc")
+texture = ExtResource("2_sgpa8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fj068")

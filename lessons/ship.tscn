@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://dmv50krf4bo5r"]
+
+[ext_resource type="Texture2D" uid="uid://bniyrxn3r2v8h" path="res://assets/ship.png" id="3_pdppw"]
+[ext_resource type="Script" path="res://lessons/ship.gd" id="4_p1sls"]
+[ext_resource type="Texture2D" uid="uid://d0bh8am2qd005" path="res://assets/gem_icon.png" id="5_jhl2u"]
+[ext_resource type="PackedScene" uid="uid://dgf54k70yiiff" path="res://assets/ship_visual_effects/main_thruster/main_thruster.tscn" id="5_q7c3l"]
+[ext_resource type="PackedScene" uid="uid://bklom8bhpxg4h" path="res://assets/ship_visual_effects/side_thruster/side_thruster.tscn" id="6_1updt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cfiak"]
+radius = 46.4866
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ldakj"]
+bg_color = Color(0.457925, 0.906728, 0.07161, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_ncgh0"]
+font_size = 20
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Ship" type="Area2D"]
+script = ExtResource("4_p1sls")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_pdppw")
+
+[node name="MainThruster" parent="Sprite2D" instance=ExtResource("5_q7c3l")]
+position = Vector2(-33, 0)
+points = PackedVector2Array(0, 0, 33.3333, 0, 66.6667, 0)
+
+[node name="SideThruster" parent="Sprite2D" instance=ExtResource("6_1updt")]
+position = Vector2(-44, -21)
+rotation = 1.74987
+
+[node name="SideThruster2" parent="Sprite2D" instance=ExtResource("6_1updt")]
+position = Vector2(-45, 19)
+rotation = 1.36715
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.58802
+shape = SubResource("CircleShape2D_cfiak")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HealthBar" type="ProgressBar" parent="UI"]
+layout_mode = 0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 54.0
+offset_bottom = -52.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_ldakj")
+show_percentage = false
+
+[node name="Sprite2D" type="Sprite2D" parent="UI"]
+position = Vector2(-28, -83)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_jhl2u")
+
+[node name="GemCount" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = -94.0
+offset_right = 47.0
+offset_bottom = -71.0
+text = "x0"
+label_settings = SubResource("LabelSettings_ncgh0")
