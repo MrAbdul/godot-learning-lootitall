@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmv50krf4bo5r"]
+[gd_scene load_steps=10 format=3 uid="uid://dmv50krf4bo5r"]
 
 [ext_resource type="Texture2D" uid="uid://bniyrxn3r2v8h" path="res://assets/ship.png" id="3_pdppw"]
 [ext_resource type="Script" path="res://lessons/ship.gd" id="4_p1sls"]
 [ext_resource type="Texture2D" uid="uid://d0bh8am2qd005" path="res://assets/gem_icon.png" id="5_jhl2u"]
 [ext_resource type="PackedScene" uid="uid://dgf54k70yiiff" path="res://assets/ship_visual_effects/main_thruster/main_thruster.tscn" id="5_q7c3l"]
 [ext_resource type="PackedScene" uid="uid://bklom8bhpxg4h" path="res://assets/ship_visual_effects/side_thruster/side_thruster.tscn" id="6_1updt"]
+[ext_resource type="PackedScene" uid="uid://c5755eqi0ulp2" path="res://lessons/joy_stick.tscn" id="6_peejx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cfiak"]
 radius = 46.4866
@@ -22,6 +23,7 @@ outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
 [node name="Ship" type="Area2D"]
+position = Vector2(903, 566)
 script = ExtResource("4_p1sls")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -48,6 +50,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
 [node name="HealthBar" type="ProgressBar" parent="UI"]
 layout_mode = 0
@@ -57,6 +60,7 @@ offset_right = 54.0
 offset_bottom = -52.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_ldakj")
 show_percentage = false
+metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="UI"]
 position = Vector2(-28, -83)
@@ -71,3 +75,10 @@ offset_right = 47.0
 offset_bottom = -71.0
 text = "x0"
 label_settings = SubResource("LabelSettings_ncgh0")
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="JoyStick" parent="CanvasLayer" instance=ExtResource("6_peejx")]
+position = Vector2(4, 901)
+visibility_mode = 1
