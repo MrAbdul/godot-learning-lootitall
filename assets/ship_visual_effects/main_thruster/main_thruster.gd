@@ -28,7 +28,7 @@ var _angle_difference_smoothed := 0.0
 var _do_redraw := false
 
 @onready var gpu_particles_2d = %GPUParticles2D
-
+@onready var ship := get_parent().get_parent()
 
 func _ready() -> void:
 	_update_drawing()
@@ -39,7 +39,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if not Engine.is_editor_hint():
-		var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+		var direction : Vector2= ship.get_dir()# Input.get_vector("move_left", "move_right", "move_up", "move_down")
 		if direction.length() > 0.0:
 			power = lerp(power, 1.0, 10.0 * delta)
 		else:

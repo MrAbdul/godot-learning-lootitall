@@ -16,6 +16,11 @@ run/main_scene="res://lessons/space_level.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.png"
 
+[autoload]
+
+UITestPanel="*res://addons/gdpractice/tester/ui_test_panel.tscn"
+Metadata="*res://addons/gdpractice/practice_solutions/metadata.gd"
+
 [display]
 
 window/size/viewport_width=1920
@@ -76,8 +81,10 @@ right_click={
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
+pointing/name="M5. Loot it All (Workbook)"
 
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.188235, 0.188235, 0.286275, 1)

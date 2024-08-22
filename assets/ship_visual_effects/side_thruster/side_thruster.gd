@@ -8,10 +8,10 @@ extends Sprite2D
 		modulate.a = alpha_curve.sample(power)
 
 @onready var _initial_scale := scale
-
+@onready var ship := get_parent().get_parent()
 
 func _process(delta: float) -> void:
-	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var direction : Vector2= ship.get_dir()# Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	if direction.length() > 0.0:
 		power = lerp(power, 1.0, 10.0 * delta)
 	else:

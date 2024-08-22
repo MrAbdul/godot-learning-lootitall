@@ -10,6 +10,7 @@ blend_mode = 2
 radius = 25.318
 
 [node name="BlackHole" type="Area2D" groups=["black_hole"]]
+collision_layer = 2
 script = ExtResource("1_38dhh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

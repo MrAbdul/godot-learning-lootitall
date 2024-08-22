@@ -7,6 +7,7 @@
 radius = 25.318
 
 [node name="Gem" type="Area2D" groups=["gem"]]
+collision_layer = 2
 script = ExtResource("1_0xpwg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
